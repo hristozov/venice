@@ -1,9 +1,6 @@
 (ns venice.sort.bubble
   (:gen-class))
 
-(defn swap-front [[a b & rest]]
-  (concat [b] [a] rest))
-
 (defn process-list [l]
   (if (< (count l) 2)
     l
