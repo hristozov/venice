@@ -1,5 +1,7 @@
 # venice
 
+[![Build Status](https://travis-ci.org/hristozov/venice.svg?branch=master)](https://travis-ci.org/hristozov/venice)
+
 FIXME: description
 
 ## Installation
