@@ -2,6 +2,11 @@
   (:require [clojure.test :refer :all]
             [venice.sort.selsort :refer :all]))
 
-(deftest test-1
-  (testing "selsort"
-    (is (= [-5 -2 1 5 7] (selsort [7 1 -5 -2 5])))))
+(deftest simple-sorting
+  (is (= [-5 -2 1 5 7] (selsort [7 1 -5 -2 5])))
+  (is (= [-10 -9 0 1 29] (selsort [29 0 1 -9 -10])))
+  (is (= [1 2 3] (selsort [1 2 3]))))
+
+(deftest empty-list
+  (is (= []) (selsort [])))
+
