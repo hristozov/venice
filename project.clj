@@ -6,4 +6,6 @@
   :dependencies [[org.clojure/clojure "1.5.1"]]
   :main ^:skip-aot venice.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}
+             :dev {:plugins [[com.jakemccrary/lein-test-refresh "0.5.0"]]}})
+
