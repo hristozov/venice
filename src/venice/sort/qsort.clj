@@ -1,10 +1,10 @@
 (ns venice.sort.qsort
   (:gen-class))
 
-(defn smaller-than [l value]
+(defn- smaller-than [l value]
   (filter #(< % value) l))
 
-(defn greater-than-or-equal [l value]
+(defn- greater-than-or-equal [l value]
   (filter #(>= % value) l))
 
 (defn qsort [l]

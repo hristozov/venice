@@ -1,7 +1,7 @@
 (ns venice.sort.bubble
   (:gen-class))
 
-(defn process-list [l]
+(defn- process-list [l]
   (if (< (count l) 2)
     l
     ((fn [[f s & tail]]
