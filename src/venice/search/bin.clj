@@ -10,7 +10,7 @@
                         nil)]
       (cond
         (= needle mid-element) true
-        (= start end) false
+        (or (nil? mid-element) (= start end)) false
         (< mid-element needle) (recur (+ mid-idx 1) end)
         (> mid-element needle) (recur start (- mid-idx 1))))))
 
