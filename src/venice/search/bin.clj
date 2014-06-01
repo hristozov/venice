@@ -2,6 +2,7 @@
   (:gen-class))
 
 (defn bin [haystack needle]
+  "Binary search for an element in a sorted list."
   (loop [start 0
          end (count haystack)]
     (let [mid-idx (+ (bit-shift-right (- end start) 1) start)

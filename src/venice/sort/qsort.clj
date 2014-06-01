@@ -8,6 +8,7 @@
   (filter #(>= % value) l))
 
 (defn qsort [l]
+  "Performs a naive quicksort on a list."
   (if (empty? l)
     l
     (let [pivot-value (first l)
@@ -15,5 +16,5 @@
           smaller (smaller-than list-without-pivot pivot-value)
           greater (greater-than-or-equal list-without-pivot pivot-value)]
       (concat (qsort smaller)
-              [pivot-value]
-              (qsort greater)))))
+        [pivot-value]
+        (qsort greater)))))

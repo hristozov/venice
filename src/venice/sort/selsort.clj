@@ -2,12 +2,17 @@
   (:gen-class))
 
 (defn selsort [l]
-  (loop [current-list l
-         result []]
-    (if (empty? current-list)
-      result
-      (let [min-el (apply min current-list)
-            min-el-arity (count (filter #{min-el} current-list))
-            l-without-min (filter #(not (= % min-el)) current-list)]
-        (recur l-without-min (concat result (repeat min-el-arity min-el)))))))
-
+  "Performs a selection sort on a list."
+  (loop [unsorted-part l
+         sorted-part []]
+    (if (empty? unsorted-part)
+      sorted-part
+      (let [min-element (apply min unsorted-part)
+            min-element-arity (count
+                                (filter #{min-element} unsorted-part))
+            new-unsorted-part (filter
+                                #(not (= % min-element))
+                                unsorted-part)]
+        (recur
+          new-unsorted-part
+          (concat sorted-part (repeat min-element-arity min-element)))))))
