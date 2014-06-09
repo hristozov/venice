@@ -8,4 +8,4 @@
   (is (= [1 2 3] (qsort [1 2 3]))))
 
 (deftest empty-list
-  (is (= []) (qsort [])))
+  (is (= [] (qsort []))))

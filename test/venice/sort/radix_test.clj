@@ -9,4 +9,4 @@
   (is (= [2 2 2] (radix [2 2 2]))))
 
 (deftest empty-list
-  (is (= []) (radix [])))
+  (is (= [] (radix []))))

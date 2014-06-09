@@ -9,4 +9,4 @@
   (is (= [2 2 2] (selsort [2 2 2]))))
 
 (deftest empty-list
-  (is (= []) (selsort [])))
+  (is (= [] (selsort []))))

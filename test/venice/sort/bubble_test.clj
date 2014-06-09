@@ -8,4 +8,4 @@
   (is (= [1 2 3] (bubble [1 2 3]))))
 
 (deftest empty-list
-  (is (= []) (bubble [])))
+  (is (= [] (bubble []))))
