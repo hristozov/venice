@@ -14,8 +14,9 @@
      l
      )))
 
-(defn bubble [l]
+(defn bubble
   "Performs a bubble sort on a list."
+  [l]
   (if (empty? l)
     l
     (let [processed-list (process-list l)

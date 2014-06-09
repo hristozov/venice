@@ -1,8 +1,9 @@
 (ns venice.sort.selsort
   (:gen-class))
 
-(defn selsort [l]
+(defn selsort
   "Performs a selection sort on a list."
+  [l]
   (loop [unsorted-part l
          sorted-part []]
     (if (empty? unsorted-part)

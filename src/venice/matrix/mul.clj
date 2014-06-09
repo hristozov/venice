@@ -7,8 +7,9 @@
 (defn- transpose [m]
   (apply pmap list m))
 
-(defn mul [m1 m2]
+(defn mul
   "Multiplies two matrices."
+  [m1 m2]
   (pmap (fn [row-1]
           (pmap (fn [col-2]
                   (reduce + (pmap * row-1 col-2)))

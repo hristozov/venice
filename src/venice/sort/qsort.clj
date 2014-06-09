@@ -7,8 +7,9 @@
 (defn- greater-than-or-equal [l value]
   (filter #(>= % value) l))
 
-(defn qsort [l]
+(defn qsort
   "Performs a naive quicksort on a list."
+  [l]
   (if (empty? l)
     l
     (let [pivot-value (first l)

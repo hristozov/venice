@@ -1,8 +1,9 @@
 (ns venice.gen.sieve
   (:gen-class))
 
-(defn sieve []
+(defn sieve
   "Generates a lazy sequence of prime numbers, using the sieve of Eratosthenes."
+  []
   ((fn helper [members-seq]
      (let [current (first members-seq)
            tail (rest members-seq)]

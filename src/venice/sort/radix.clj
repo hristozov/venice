@@ -1,16 +1,18 @@
 (ns venice.sort.radix
   (:gen-class))
 
-(defn- get-digit-at-position [number position]
+(defn- get-digit-at-position
   "Gets the digit on a specified position in a number. Base 10."
+  [number position]
   (let [pow-10-position (Math/pow 10 position)]
     (int
       (/
         (mod number pow-10-position)
         (/ pow-10-position 10)))))
 
-(defn- sort-by-position [l position]
+(defn- sort-by-position
   "Sorts a list by the digits on a specified position."
+  [l position]
   (flatten
     (map (fn [digit]
            (filter
