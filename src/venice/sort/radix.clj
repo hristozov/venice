@@ -16,7 +16,7 @@
            (filter
              #(= (get-digit-at-position % position) digit)
              l))
-      (range 0 10))))
+         (range 0 10))))
 
 (defn radix
   "Performs fairly slow (with non-optimal constants) base-10 LSD radix sort on a

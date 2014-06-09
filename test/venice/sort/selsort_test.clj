@@ -10,4 +10,3 @@
 
 (deftest empty-list
   (is (= []) (selsort [])))
-

@@ -24,4 +24,3 @@
 
 (deftest bin-search-with-empty-list
   (is (false? (bin [] 0))))
-

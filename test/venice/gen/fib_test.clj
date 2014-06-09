@@ -9,4 +9,3 @@
     (is (= 1 (nth members 2)))
     (is (= 8 (nth members 6)))
     (is (= 987 (nth members 16)))))
-

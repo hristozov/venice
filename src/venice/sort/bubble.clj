@@ -8,11 +8,11 @@
        (let [smaller (min f s)
              bigger (max f s)]
          (concat [smaller]
-           (process-list
-             (concat [bigger]
-               tail)))))
-      l
-      )))
+                 (process-list
+                   (concat [bigger]
+                           tail)))))
+     l
+     )))
 
 (defn bubble [l]
   "Performs a bubble sort on a list."
@@ -23,6 +23,5 @@
           l-without-last (drop-last processed-list)
           last-element (last processed-list)]
       (concat (bubble l-without-last)
-        [last-element])
+              [last-element])
       )))
-

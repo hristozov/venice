@@ -9,4 +9,3 @@
 
 (deftest empty-list
   (is (= []) (qsort [])))
-

@@ -16,5 +16,5 @@
           smaller (smaller-than list-without-pivot pivot-value)
           greater (greater-than-or-equal list-without-pivot pivot-value)]
       (concat (qsort smaller)
-        [pivot-value]
-        (qsort greater)))))
+              [pivot-value]
+              (qsort greater)))))
