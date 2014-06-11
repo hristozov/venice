@@ -8,11 +8,11 @@
   [index]
   (int (Math/floor (/ (- index 1) 2))))
 
-(defn- left-child-idx
+(defn- left-child-index
   [index]
   (+ (* 2 index) 1))
 
-(defn- right-child-idx
+(defn- right-child-index
   [index]
   (+ (* 2 index) 2))
 
@@ -31,20 +31,20 @@
 
 (defn- min-child
   [heap idx]
-  (let [left (left-child-idx idx)
-        right (right-child-idx idx)]
+  (let [left (left-child-index idx)
+        right (right-child-index idx)]
     (cond
       (>= left (count heap)) -1
       (>= right (count heap)) left
-      (< (heap left-child-idx) (heap right-child-idx)) left
+      (< (heap left) (heap right)) left
       :else right)))
 
 (defn- down-heap
   [heap]
   (loop [idx 0
          cur-heap heap]
-    (let [left-idx (left-child-idx idx)
-          right-idx (right-child-idx idx)
+    (let [left-idx (left-child-index idx)
+          right-idx (right-child-index idx)
           current (cur-heap idx)
           min-child-idx (min-child cur-heap idx)]
       (cond

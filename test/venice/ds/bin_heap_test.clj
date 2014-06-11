@@ -49,3 +49,21 @@
   (is (= -5 (min-element (heapify [0 0 -5 25 4 2 8 9 0]))))
   (is (= -5 (min-element (heapify [0 0 -5 25 26 -4 -3 -2 2 8 9 0]))))
   (is (= -5 (min-element (heapify [0 0 0 0 0 0 -5 0 0 0 0 -5])))))
+
+; TODO: Fix the composition ugliness here...
+(deftest delete-min-test
+  (is (= 2 ((comp min-element delete-min heapify) [1 2 3])))
+  (is (= 2 ((comp min-element delete-min heapify) [2 1 3])))
+  (is (= 2 ((comp min-element delete-min heapify) [2 3 1])))
+  (is (= 0 ((comp min-element delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 0 ((comp min-element delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 1 ((comp min-element delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 1 ((comp min-element delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 2 ((comp min-element delete-min delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 3 ((comp min-element delete-min delete-min delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 4 ((comp min-element delete-min delete-min delete-min delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 7 ((comp min-element delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 7 ((comp min-element delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 8 ((comp min-element delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 9 ((comp min-element delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0])))
+  (is (= 25 ((comp min-element delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min delete-min heapify) [0 7 3 1 7 1 0 25 4 2 8 9 0]))))
