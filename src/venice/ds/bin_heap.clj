@@ -56,6 +56,11 @@
                 min-child-idx
                 cur-heap)))))
 
+(defn empty-heap
+  "Creates an empty heap."
+  []
+  [])
+
 (defn min-element
   [heap]
   (first heap))
@@ -68,10 +73,9 @@
   [heap]
   (down-heap (into [] (cons (last heap) (rest (pop heap))))))
 
-(defn empty-heap
-  "Creates an empty heap."
-  []
-  [])
+(defn heap-empty?
+  [heap]
+  (empty? heap))
 
 (defn heapify
   [l]

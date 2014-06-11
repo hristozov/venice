@@ -2,6 +2,10 @@
   (:require [clojure.test :refer :all]
             [venice.ds.bin-heap :refer :all]))
 
+(deftest heap-empty?-test
+  (is (true? (heap-empty? (empty-heap))))
+  (is (false? (heap-empty? (heapify [1 2 3])))))
+
 (deftest empty-heap-test
   (is (= [] (empty-heap))))
 
@@ -52,6 +56,8 @@
 
 ; TODO: Fix the composition ugliness here...
 (deftest delete-min-test
+  (is (= [] (delete-min (empty-heap))))
+  (is (= [] (delete-min (heapify []))))
   (is (= 2 ((comp min-element delete-min heapify) [1 2 3])))
   (is (= 2 ((comp min-element delete-min heapify) [2 1 3])))
   (is (= 2 ((comp min-element delete-min heapify) [2 3 1])))
