@@ -29,7 +29,10 @@
   (is (= [2 4 3] (heapify [4 2 3])))
   (is (= [2 4 3] (heapify [4 3 2])))
   (is (= [2 2 2] (heapify [2 2 2])))
-  (is (= [-5 0 0 0 0 0 0 0 0 0] (heapify [0 0 0 0 0 -5 0 0 0 0]))))
+  (is (= [-5 0 0 0 0 0 0 0 0 0] (heapify [0 0 0 0 0 -5 0 0 0 0])))
+  (is (= [-5 0 0 0 0 0 0 0 0 0] (heapify [-5 0 0 0 0 0 0 0 0 0])))
+  (is (= [-5 0 0 0 0 0 0 0 0 0] (heapify [0 0 0 0 0 0 0 0 0 -5])))
+  (is (= [-5 -5 0 0 0 0 0 0 0 0] (heapify [0 0 0 0 0 -5 0 0 0 -5]))))
 
 (deftest min-element-test
   (is (= 1 (min-element (heapify [1]))))

@@ -23,9 +23,9 @@
     (let [parent-idx (parent-idx idx)]
       (cond
         (<= idx 0) cur-heap
-        (< (heap idx) (heap parent-idx)) (recur
-                                           parent-idx
-                                           (swap cur-heap idx parent-idx))
+        (< (cur-heap idx) (cur-heap parent-idx)) (recur
+                                                   parent-idx
+                                                   (swap cur-heap idx parent-idx))
         :else cur-heap
         ))))
 
