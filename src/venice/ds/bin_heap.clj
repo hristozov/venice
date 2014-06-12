@@ -25,7 +25,9 @@
         (<= idx 0) cur-heap
         (< (cur-heap idx) (cur-heap parent-idx)) (recur
                                                    parent-idx
-                                                   (swap cur-heap idx parent-idx))
+                                                   (swap cur-heap
+                                                         idx
+                                                         parent-idx))
         :else cur-heap
         ))))
 
@@ -51,7 +53,9 @@
         (>= left-idx (count cur-heap)) cur-heap
         (> current (cur-heap min-child-idx)) (recur
                                                min-child-idx
-                                               (swap cur-heap idx min-child-idx))
+                                               (swap cur-heap
+                                                     idx
+                                                     min-child-idx))
         :else (recur
                 min-child-idx
                 cur-heap)))))
