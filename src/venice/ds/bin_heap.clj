@@ -71,7 +71,9 @@
 
 (defn delete-min
   [heap]
-  (down-heap (into [] (cons (last heap) (rest (pop heap))))))
+  (if (<= (count heap) 1)
+    []
+    (down-heap (into [] (cons (last heap) (rest (pop heap)))))))
 
 (defn heap-empty?
   [heap]

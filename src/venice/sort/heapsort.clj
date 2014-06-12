@@ -7,7 +7,6 @@
   [l]
   (loop [heap (heapify l)
          result []]
-    (println heap result)
-    (if (true? true)
+    (if (heap-empty? heap)
       result
       (recur (delete-min heap) (conj result (min-element heap))))))
