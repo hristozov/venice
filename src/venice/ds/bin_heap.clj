@@ -62,24 +62,31 @@
   [])
 
 (defn min-element
+  "Returns the minimal element in a heap."
   [heap]
   (first heap))
 
 (defn insert
+  "Inserts an element in a heap."
   [heap element]
   (up-heap (conj heap element)))
 
 (defn delete-min
+  "Returns a copy of the heap without its minimal element."
   [heap]
   (if (<= (count heap) 1)
     []
-    (down-heap (into [] (cons (last heap) (rest (pop heap)))))))
+    (down-heap (into [] (cons
+                          (last heap)
+                          (rest (pop heap)))))))
 
 (defn heap-empty?
+  "Checks whether a heap is empty."
   [heap]
   (empty? heap))
 
 (defn heapify
+  "Converts a list to a heap."
   [l]
   (reduce (fn [acc item]
             (insert acc item))

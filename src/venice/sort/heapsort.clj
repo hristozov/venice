@@ -9,4 +9,5 @@
          result []]
     (if (heap-empty? heap)
       result
-      (recur (delete-min heap) (conj result (min-element heap))))))
+      (recur (delete-min heap)
+             (conj result (min-element heap))))))
