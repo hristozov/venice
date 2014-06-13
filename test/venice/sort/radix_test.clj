@@ -1,21 +1,25 @@
 (ns venice.sort.radix-test
   (:require [clojure.test :refer :all]
+            [venice.sort.base-sort-test :refer :all]
             [venice.sort.radix :refer :all]))
 
-(deftest simple-sorting
-  (is (= [0 1 2 2 7 8 8 9 14 24 31 57] (radix [8 57 1 0 2 24 31 14 8 7 2 9])))
-  (is (= [-14 -8 0 1 2 2 7 8 9 24 31 57] (radix [57 1 0 2 24 31 -8 8 7 2 9 -14])))
-  (is (= [0 1 2 2 7 8 8 9 14 24 31 57] (radix [8 57 1 0 2 24 31 14 8 7 2 9] 2)))
-  (is (= [0 1 2 2 7 8 8 9 14 24 31 57] (radix [8 57 1 0 2 24 31 14 8 7 2 9] 16)))
-  (is (= [0 1 2 2 7 8 8 9 14 24 31 57] (radix [8 57 1 0 2 24 31 14 8 7 2 9] 100)))
-  (is (= [0 1 23 29 41 46 89 159 444 1500 2031] (radix [29 0 1 46 1500 2031 159 444 23 41 89])))
-  (is (= [0 1 23 29 41 46 89 159 444 1500 2031] (radix [29 0 1 46 1500 2031 159 444 23 41 89] 2)))
-  (is (= [0 1 23 29 41 46 89 159 444 1500 2031] (radix [29 0 1 46 1500 2031 159 444 23 41 89] 16)))
-  (is (= [0 1 23 29 41 46 89 159 444 1500 2031] (radix [29 0 1 46 1500 2031 159 444 23 41 89] 100)))
-  (is (= [1 2 3] (radix [1 2 3])))
-  (is (= [1 2 3] (radix [1 2 3] 2)))
-  (is (= [2 2 2] (radix [2 2 2])))
-  (is (= [2 2 2] (radix [2 2 2] 2))))
+(deftest simple-sorting-default-base
+  (test-with-different-numeric-values radix))
+
+(deftest simple-sorting-base-2
+  (test-with-different-numeric-values #(radix % 2)))
+
+(deftest simple-sorting-base-10
+  (test-with-different-numeric-values #(radix % 10)))
+
+(deftest simple-sorting-base-16
+  (test-with-different-numeric-values #(radix % 16)))
+
+(deftest simple-sorting-base-50
+  (test-with-different-numeric-values #(radix % 50)))
+
+(deftest simple-sorting-base-100
+  (test-with-different-numeric-values #(radix % 100)))
 
 (deftest empty-list
-  (is (= [] (radix []))))
+  (test-with-empty-list radix))
