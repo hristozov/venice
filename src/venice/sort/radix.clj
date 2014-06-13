@@ -35,7 +35,7 @@
 
 (defn radix
   "Performs fairly slow (with non-optimal constants) LSD radix sort with a given
-  base on a list. Does not support negative numbers. Default base is 10."
+  base on a list. Default base is 10."
   ([l] (radix l 10))
   ([l base]
    (if (empty? l)
