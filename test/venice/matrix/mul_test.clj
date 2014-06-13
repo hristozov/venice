@@ -2,7 +2,7 @@
   (:require [clojure.test :refer :all]
             [venice.matrix.mul :refer :all]))
 
-(deftest bin-search-even-number
+(deftest test-a-simple-case
   (let [matrix1 [[1 2 3 4]
                  [3 2 1 7]
                  [2 1 3 5]]
