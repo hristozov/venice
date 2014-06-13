@@ -25,6 +25,14 @@
              l))
          (range 0 base))))
 
+(defn- put-negative-elements-on-front
+  [l]
+  (loop [current-list l]
+    (let [last-element (last current-list)]
+      (if (pos? last-element)
+        current-list
+        (recur (cons last-element (drop-last current-list)))))))
+
 (defn radix
   "Performs fairly slow (with non-optimal constants) LSD radix sort with a given
   base on a list. Does not support negative numbers. Default base is 10."
@@ -37,7 +45,7 @@
        (loop [current-position 1
               current-list l]
          (if (> current-position biggest-element-digits)
-           current-list
+           (put-negative-elements-on-front current-list)
            (recur
              (+ current-position 1)
              (sort-by-position current-list current-position base))))))))
