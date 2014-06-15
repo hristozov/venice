@@ -13,3 +13,6 @@
                   [-3 2 -2]
                   [5 -2 1]]]
     (is (= expected (sub matrix1 matrix2)))))
+
+(deftest test-with-empty-matrices
+    (is (= [] (sub [] []))))

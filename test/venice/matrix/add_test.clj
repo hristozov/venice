@@ -13,3 +13,6 @@
                   [9 7 5]
                   [6 7 8]]]
     (is (= expected (add matrix1 matrix2)))))
+
+(deftest test-with-empty-matrices
+    (is (= [] (add [] []))))
