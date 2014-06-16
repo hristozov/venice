@@ -8,4 +8,5 @@
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
              :dev {:plugins [[com.jakemccrary/lein-test-refresh "0.5.0"]
-                             [jonase/eastwood "0.1.3"]]}})
+                             [jonase/eastwood "0.1.3"]
+                             [lein-cloverage "1.0.2"]]}})
