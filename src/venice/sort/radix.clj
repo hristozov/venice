@@ -27,7 +27,7 @@
              l))
          (range 0 base))))
 
-(defn do-radix
+(defn- do-radix
   ([l base]
    (if (empty? l)
      l
