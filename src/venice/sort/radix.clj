@@ -3,7 +3,9 @@
 
 (defn- log-base
   [base number]
-  (/ (Math/log10 number) (Math/log10 base)))
+  (if (= 0 number)
+    0
+    (/ (Math/log10 number) (Math/log10 base))))
 
 (defn- get-digit-at-position
   "Gets the digit on a specified position in a number. Base 10."
@@ -25,27 +27,34 @@
              l))
          (range 0 base))))
 
-(defn- put-negative-elements-on-front
-  [l]
-  (loop [current-list l]
-    (let [last-element (last current-list)]
-      (if (pos? last-element)
-        current-list
-        (recur (cons last-element (drop-last current-list)))))))
+(defn- do-radix
+  ([l base]
+   (if (empty? l)
+     l
+     (let [biggest-element (apply max l)
+           logarithm-of-biggest (log-base base biggest-element)
+           biggest-element-digits (+ (int logarithm-of-biggest) 1)]
+       (loop [current-position 1
+              current-list l]
+         (if (> current-position biggest-element-digits)
+           current-list
+           (recur
+             (+ current-position 1)
+             (sort-by-position current-list current-position base))))))))
 
 (defn radix
   "Performs fairly slow (with non-optimal constants) LSD radix sort with a given
   base on a list. Default base is 10."
   ([l] (radix l 10))
   ([l base]
-   (if (empty? l)
-     l
-     (let [biggest-element (apply max l)
-           biggest-element-digits (+ (int (log-base base biggest-element)) 1)]
-       (loop [current-position 1
-              current-list l]
-         (if (> current-position biggest-element-digits)
-           (put-negative-elements-on-front current-list)
-           (recur
-             (+ current-position 1)
-             (sort-by-position current-list current-position base))))))))
+   (let [grouped (group-by pos? l)
+         positive-items (grouped true)
+         negative-items (grouped false)
+         negative-items-inv (map - negative-items)
+         positive-sorted (do-radix positive-items base)
+         negative-inv-sorted (do-radix negative-items-inv base)
+         negative-sorted (map - negative-inv-sorted)
+         result (into
+                  (into (empty l) (reverse negative-sorted))
+                  positive-sorted)]
+     result)))
