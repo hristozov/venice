@@ -25,4 +25,4 @@
 (defn automata?
   "Checks whether a given value is an automata."
   [value]
-  (= AutomataImpl (type value)))
+  (satisfies? Automata value))

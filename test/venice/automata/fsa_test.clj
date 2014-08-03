@@ -2,6 +2,12 @@
   (:require [clojure.test :refer :all]
             [venice.automata.fsa :refer :all]))
 
+(deftest is-automata
+  (let [auto (create-fsa :A
+                         #{:D}
+                         {:A [1 :B]})]
+  (is (automata? auto))))
+
 (deftest accepting-three-ones
   (let [auto (create-fsa :A
                          #{:D}
