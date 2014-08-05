@@ -18,3 +18,17 @@
     (is (false? (accepts? auto [1 1])))
     (is (false? (accepts? auto [1 1 1 1])))
     (is (false? (accepts? auto [])))))
+
+(deftest accepting-repeated-strings
+  (let [auto (create-fsa :B
+                         #{:B}
+                         {:A {\b :B}
+                          :B {\a :A}})]
+    (is (true? (accepts? auto "")))
+    (is (true? (accepts? auto "ab")))
+    (is (true? (accepts? auto "abab")))
+    (is (true? (accepts? auto "ababab")))
+    (is (false? (accepts? auto "a")))
+    (is (false? (accepts? auto "aba")))
+    (is (false? (accepts? auto "b")))
+    (is (false? (accepts? auto "ababa")))))
