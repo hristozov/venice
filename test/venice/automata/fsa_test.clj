@@ -15,4 +15,6 @@
                           :B [1 :C]
                           :C [1 :D]})]
     (is (true? (accepts? auto [1 1 1])))
-    (is (false? (accepts? auto [1 1])))))
+    (is (false? (accepts? auto [1 1])))
+    (is (false? (accepts? auto [1 1 1 1])))
+    (is (false? (accepts? auto [])))))
