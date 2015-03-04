@@ -1,6 +1,7 @@
 # venice
 
 [![Build Status](https://travis-ci.org/hristozov/venice.svg?branch=master)](https://travis-ci.org/hristozov/venice)
+[![Dependencies Status](http://jarkeeper.com/hristozov/venice/status.png)](http://jarkeeper.com/hristozov/venice)
 
 ## What's this?
 Algorithm/data structure experiments in Clojure.
