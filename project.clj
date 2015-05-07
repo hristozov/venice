@@ -7,6 +7,6 @@
   :main ^:skip-aot venice.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
-             :dev {:plugins [[com.jakemccrary/lein-test-refresh "0.7.0"]
+             :dev {:plugins [[com.jakemccrary/lein-test-refresh "0.9.0"]
                              [jonase/eastwood "0.2.1"]
-                             [lein-cloverage "1.0.2"]]}})
+                             [lein-cloverage "1.0.3"]]}})
