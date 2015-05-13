@@ -57,4 +57,7 @@
          result (into
                   (into (empty l) (reverse negative-sorted))
                   positive-sorted)]
-     result)))
+     ; XXX: This is retarded.
+     (if (list? l)
+       (reverse result)
+       result))))
